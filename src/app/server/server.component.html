@@ -1,0 +1,44 @@
+<hr>
+<p>Server with Id {{ serverId }} is {{ status }} </p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <ol>
+                <li>Add a ...</li>
+                <li>Add a ...</li>
+            </ol>
+
+            <label>username</label>
+            <input type="text" class="form-control" [(ngModel)]="username"  />
+
+        </div>
+    </div>
+</div>
+
+
+<p  [ngStyle]="{backgroundColor: getColor()}"
+    [ngClass]="{online: serverStatus === 'Online'}">{{username}}</p>
+
+<button class="btn btn-primary"  [disabled]="username === ''" (click) = "onClick()" >Click Me</button>
+
+<hr>
+
+<button class="btn btn-primary" *ngFor="let server of servers" >{{server}}</button>
+
+<hr>
+
+<h1>Assignment</h1>
+
+<button class="btn btn-primary" (click) = "onClickAssignment()" >Display Details</button>
+<p *ngIf="buttonclicked"> Secret Password</p>
+
+<hr>
+
+<div *ngFor="let server of servers"
+    [ngClass]="{online: i>5}"
+    [ngStyle]="{backgroundColor: i>5 ? 'blue' : 'green'}"
+>{{server}}
+</div>
+
+
